@@ -24,13 +24,15 @@ public class BonusService {
         int top = 150_000;
         if (accumulation <= mid && accumulation > lower) {
             return standardLevel(currentValue);
-        } else if (accumulation > mid && accumulation <= top) {
-            return silverLevel(currentValue);
-        } else if (accumulation > top) {
-            return goldenLevel(currentValue);
-        } else {
-            return 0;
         }
+        if (accumulation > mid && accumulation <= top) {
+            return silverLevel(currentValue);
+        }
+        if (accumulation > top) {
+            return goldenLevel(currentValue);
+        }
+        return 0;
+
     }
 
 }
